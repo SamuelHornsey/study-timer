@@ -1,0 +1,8 @@
+{
+  "short_name": "Timer",
+  "name": "Study Timer",
+  "start_url": "https://samuelhornsey.github.io/study-timer/",
+  "display": "standalone",
+  "background_color": "#531cb3",
+  "theme_color": "#531cb3"
+}
