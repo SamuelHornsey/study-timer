@@ -11,12 +11,16 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+nav {
+    background: linear-gradient(-90deg, #531cb3, #944bbb);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
 }
 
 nav li {
@@ -27,15 +31,80 @@ nav li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 20px 24px;
     text-decoration: none;
-}
-
-nav li a:hover {
-    background-color: #111;
 }
 
 section .container {
   width: 80%;
   margin: auto;
+}
+
+section .timer {
+    text-align: center;
+}
+
+section .timer h1 {
+    font-size: 70px;
+}
+
+section .timer .timer-perc {
+    width: 50%;
+    height: 3px;
+    margin: auto;
+}
+
+section .settings {
+    padding: 40px;
+    text-align: center;
+}
+
+section .settings input[type=text] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    font-size: 30px;
+    text-align: center;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #eee;
+    transition: .4s ease-in-out;
+}
+
+section .settings input[type=text]:focus {
+    border-bottom: 2px solid #944bbb;
+}
+
+.button {
+    border-radius: 5px;
+    background-color: white; 
+    color: black; 
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button:hover {
+    color: white; 
+}
+
+.stop {
+    border: 2px solid #531cb3;
+}
+
+.start {
+    border: 2px solid #944bbb;
+}
+
+.stop:hover {
+    border: 2px solid #531cb3;
+    background-color: #531cb3;
+}
+
+.start:hover {
+    border: 2px solid #944bbb;
+    background-color: #944bbb;
 }

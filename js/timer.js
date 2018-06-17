@@ -5,14 +5,11 @@
 
 class Timer {
   constructor () {
-    console.log(window)
     this.el = document.getElementById('timer');
     this.startBtn = document.getElementById('startBtn');
     this.stopBtn = document.getElementById('stopBtn');
-    this.reset = document.getElementById('reset');
     this.input = document.getElementById('timerTime');
-    this.slider = document.getElementById('range');
-    this.summary = document.getElementById('summary');
+    this.percentage = document.getElementsByClassName('timer-perc')[0];
     this.interval = 1000;
     this.el.innerHTML = this.currentTime;
 
@@ -20,32 +17,15 @@ class Timer {
     this._startTimer = this._startTimer.bind(this);
     this._stopTimer = this._stopTimer.bind(this);
     this._resetTimer = this._resetTimer.bind(this);
-    this._breakPercentage = this._breakPercentage.bind(this);
-    this._summary = this._summary.bind(this);
 
     this._resetTimer();
     this._addEventListeners();
-    this._breakPercentage();
-    this._summary();
-  }
-
-  _summary() {
-    let studyTime = this.currentTime * (1 - this.breakPercentage);
-
-    let breakTime = this.currentTime * this.breakPercentage;
-    this.summary.innerHTML = `Study Time: ${studyTime}, Break Time: ${breakTime}`;
   }
 
   _addEventListeners() {
     this.startBtn.addEventListener('click', this._startTimer);
     this.stopBtn.addEventListener('click', this._stopTimer);
-    this.reset.addEventListener('click', this._resetTimer);
-    this.slider.addEventListener('change', this._breakPercentage);
-  }
-
-  _breakPercentage() {
-    this.breakPercentage = this.slider.value / 100;
-    this._summary();
+    this.input.addEventListener('input', this._resetTimer);
   }
 
   _startTimer() {
@@ -58,25 +38,52 @@ class Timer {
 
       let sec = this.currentTime % 60;
 
+      let percent = (this.startTime - this.currentTime) / this.startTime;
+
+
+      if (Math.round(percent * 100) < 10) {
+        var bottom = 0;
+      } else {
+        var bottom = Math.round(percent * 100) - 10;
+      }
+
+      console.log(percent);
+
+      if (min < 10)
+        min = `0${min}`;
+
+      if (sec < 10)
+        sec = `0${sec}`;
+
       this.el.innerHTML = `${min}:${sec}`;
       this.currentTime--;
+
+      this.percentage.style.background = `linear-gradient(to right, #531cb3 ${bottom}%, #eee ${Math.round(percent * 100)}%)`
       document.title = `(${min}:${sec}) Study Timer`;
     }, this.interval);
   }
 
-  _stopTimer(id) {
+  _stopTimer() {
     clearInterval(this.timerId);
   }
 
   _resetTimer() {
     this.currentTime = this.input.value * (60);
+    this.startTime = this.currentTime;
 
     let min = Math.floor(this.currentTime / 60);
 
     let sec = this.currentTime % 60;
 
+    if (min < 10)
+      min = `0${min}`;
+
+    if (sec < 10)
+      sec = `0${sec}`;
+
+    document.title = `(${min}:${sec}) Study Timer`;
     this.el.innerHTML = `${min}:${sec}`;
-    this._summary();
+    this.percentage.style.background = `linear-gradient(to right, #531cb3 0%, #eee 0%)`
   }
 }
 
