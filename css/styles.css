@@ -34,10 +34,32 @@ nav li a {
     padding: 20px 24px;
     text-decoration: none;
 }
+@media screen and (min-width: 400px) {
+    section .container {
+        width: 95%;
+        margin: auto;
+    }
+}
 
-section .container {
-  width: 80%;
-  margin: auto;
+@media screen and (min-width: 800px) {
+    section .container {
+        width: 70%;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 1020px) {
+    section .container {
+        width: 50%;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 2000px) {
+    section .container {
+        width: 40%;
+        margin: auto;
+    }
 }
 
 section .timer {
@@ -60,7 +82,8 @@ section .settings {
 }
 
 section .settings input[type=text] {
-    padding: 12px 20px;
+    padding: 12px 10px;
+    width: 80%;
     margin: 8px 0;
     font-size: 30px;
     text-align: center;
@@ -74,7 +97,7 @@ section .settings input[type=text]:focus {
     border-bottom: 2px solid #944bbb;
 }
 
-.button {
+section .settings .button {
     border-radius: 5px;
     background-color: white; 
     color: black; 
@@ -87,24 +110,24 @@ section .settings input[type=text]:focus {
     cursor: pointer;
 }
 
-.button:hover {
+section .settings .button:hover {
     color: white; 
 }
 
-.stop {
+section .settings .stop {
     border: 2px solid #531cb3;
 }
 
-.start {
+section .settings .start {
     border: 2px solid #944bbb;
 }
 
-.stop:hover {
+section .settings .stop:hover {
     border: 2px solid #531cb3;
     background-color: #531cb3;
 }
 
-.start:hover {
+section .settings .start:hover {
     border: 2px solid #944bbb;
     background-color: #944bbb;
 }
