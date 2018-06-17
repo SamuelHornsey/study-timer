@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Study Timer</title>
+  <meta name="description" content="Study Timer">
+  <meta name="author" content="Samuel Hornsey">
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<nav>
+  <ul>
+    <li><a href="#">Study Timer</a></li>
+  </ul>
+</nav>
+
+<section>
+  <div class="container">
+    <div id="app">
+      <h1 id="timer"></h1>
+
+      <h4>Enter Study Period (Min)</h4>
+      <input type="text" name="timer" id="timerTime" placeholder="Min" value="30">
+
+      <h4>Break Percentage</h4>
+      <input type="range" min="1" max="100" value="5" class="slider" id="range">
+
+      <h4 id="summary"></h4>
+
+      <button id="startBtn" type="button" name="button">Start</button>
+      <button id="stopBtn" type="button" name="button">Stop</button>
+      <button id="reset" type="button" name="button">Reset</button>
+    </div>
+  </div>
+</section>
+
+<body>
+  <script src="js/timer.js"></script>
+</body>
+</html>
