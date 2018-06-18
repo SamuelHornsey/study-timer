@@ -95,12 +95,13 @@ section .settings input[type=text] {
 
 section .settings input[type=text]:focus {
     border-bottom: 2px solid #944bbb;
+    outline-width: 0;
 }
 
 section .settings .button {
     border-radius: 5px;
-    background-color: white; 
-    color: black; 
+    background-color: white;
+    color: black;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -111,7 +112,7 @@ section .settings .button {
 }
 
 section .settings .button:hover {
-    color: white; 
+    color: white;
 }
 
 section .settings .stop {
@@ -125,9 +126,11 @@ section .settings .start {
 section .settings .stop:hover {
     border: 2px solid #531cb3;
     background-color: #531cb3;
+    outline-width: 0;
 }
 
 section .settings .start:hover {
     border: 2px solid #944bbb;
     background-color: #944bbb;
+    outline-width: 0;
 }

@@ -6,8 +6,8 @@
 class Timer {
   constructor () {
     this.el = document.getElementById('timer');
-    this.startBtn = document.getElementById('startBtn');
-    this.stopBtn = document.getElementById('stopBtn');
+    this.startBtn = document.getElementsByClassName('start')[0];
+    this.stopBtn = document.getElementsByClassName('stop')[0];
     this.input = document.getElementById('timerTime');
     this.percentage = document.getElementsByClassName('timer-perc')[0];
     this.interval = 1000;
@@ -29,6 +29,9 @@ class Timer {
   }
 
   _startTimer() {
+    if (this.timerId)
+      return;
+
     this.timerId = setInterval(() => {
       if (this.currentTime <= 0) {
         this._stopTimer(this.timerId);
@@ -47,8 +50,6 @@ class Timer {
         var bottom = Math.round(percent * 100) - 10;
       }
 
-      console.log(percent);
-
       if (min < 10)
         min = `0${min}`;
 
@@ -65,6 +66,7 @@ class Timer {
 
   _stopTimer() {
     clearInterval(this.timerId);
+    this.timerId = null;
   }
 
   _resetTimer() {
