@@ -5,6 +5,7 @@ self.addEventListener("install", event => {
           "js/timer.js",
           "js/manifest.json",
           "css/styles.css",
+          "img/*",
           "index.html"
         ]);
       })
