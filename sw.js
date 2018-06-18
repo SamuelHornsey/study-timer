@@ -5,7 +5,9 @@ self.addEventListener("install", event => {
           "js/timer.js",
           "js/manifest.json",
           "css/styles.css",
-          "img/*",
+          "img/favicon.png",
+          "img/icon-192.png",
+          "img/icon-512.png",
           "index.html"
         ]);
       })
