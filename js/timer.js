@@ -1,10 +1,18 @@
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 /**
 * By Samuel Hornsey
 * Timer JS
 */
 
-class Timer {
-  constructor () {
+var Timer = function () {
+  function Timer() {
+    _classCallCheck(this, Timer);
+
     this.el = document.getElementById('timer');
     this.startBtn = document.getElementsByClassName('start')[0];
     this.stopBtn = document.getElementsByClassName('stop')[0];
@@ -22,71 +30,82 @@ class Timer {
     this._addEventListeners();
   }
 
-  _addEventListeners() {
-    this.startBtn.addEventListener('click', this._startTimer);
-    this.stopBtn.addEventListener('click', this._stopTimer);
-    this.input.addEventListener('input', this._resetTimer);
-  }
+  _createClass(Timer, [{
+    key: '_addEventListeners',
+    value: function _addEventListeners() {
+      this.startBtn.addEventListener('click', this._startTimer);
+      this.stopBtn.addEventListener('click', this._stopTimer);
+      this.input.addEventListener('input', this._resetTimer);
+    }
+  }, {
+    key: '_startTimer',
+    value: function _startTimer() {
+      var _this = this;
 
-  _startTimer() {
-    if (this.timerId)
-      return;
+      if (this.timerId) return;
 
-    this.timerId = setInterval(() => {
-      if (this.currentTime <= 0) {
-        this._stopTimer(this.timerId);
-      }
+      this.stopBtn.innerHTML = 'Stop';
 
-      let min = Math.floor(this.currentTime / 60);
+      this.timerId = setInterval(function () {
+        if (_this.currentTime <= 0) {
+          _this._stopTimer(_this.timerId);
+        }
 
-      let sec = this.currentTime % 60;
+        var min = Math.floor(_this.currentTime / 60);
 
-      let percent = (this.startTime - this.currentTime) / this.startTime;
+        var sec = _this.currentTime % 60;
 
+        var percent = (_this.startTime - _this.currentTime) / _this.startTime;
 
-      if (Math.round(percent * 100) < 10) {
-        var bottom = 0;
+        if (Math.round(percent * 100) < 10) {
+          var bottom = 0;
+        } else {
+          var bottom = Math.round(percent * 100) - 10;
+        }
+
+        if (min < 10) min = '0' + min;
+
+        if (sec < 10) sec = '0' + sec;
+
+        _this.el.innerHTML = min + ':' + sec;
+        _this.currentTime--;
+
+        _this.percentage.style.background = 'linear-gradient(to right, #531cb3 ' + bottom + '%, #eee ' + Math.round(percent * 100) + '%)';
+        document.title = '(' + min + ':' + sec + ') Study Timer';
+      }, this.interval);
+    }
+  }, {
+    key: '_stopTimer',
+    value: function _stopTimer() {
+      if (this.timerId) {
+        clearInterval(this.timerId);
+        this.timerId = null;
+        this.stopBtn.innerHTML = 'Reset';
       } else {
-        var bottom = Math.round(percent * 100) - 10;
+        this._resetTimer();
       }
+    }
+  }, {
+    key: '_resetTimer',
+    value: function _resetTimer() {
+      this.currentTime = this.input.value * 60;
+      this.startTime = this.currentTime;
 
-      if (min < 10)
-        min = `0${min}`;
+      var min = Math.floor(this.currentTime / 60);
 
-      if (sec < 10)
-        sec = `0${sec}`;
+      var sec = this.currentTime % 60;
 
-      this.el.innerHTML = `${min}:${sec}`;
-      this.currentTime--;
+      if (min < 10) min = '0' + min;
 
-      this.percentage.style.background = `linear-gradient(to right, #531cb3 ${bottom}%, #eee ${Math.round(percent * 100)}%)`
-      document.title = `(${min}:${sec}) Study Timer`;
-    }, this.interval);
-  }
+      if (sec < 10) sec = '0' + sec;
 
-  _stopTimer() {
-    clearInterval(this.timerId);
-    this.timerId = null;
-  }
+      document.title = '(' + min + ':' + sec + ') Study Timer';
+      this.el.innerHTML = min + ':' + sec;
+      this.percentage.style.background = 'linear-gradient(to right, #531cb3 0%, #eee 0%)';
+    }
+  }]);
 
-  _resetTimer() {
-    this.currentTime = this.input.value * (60);
-    this.startTime = this.currentTime;
-
-    let min = Math.floor(this.currentTime / 60);
-
-    let sec = this.currentTime % 60;
-
-    if (min < 10)
-      min = `0${min}`;
-
-    if (sec < 10)
-      sec = `0${sec}`;
-
-    document.title = `(${min}:${sec}) Study Timer`;
-    this.el.innerHTML = `${min}:${sec}`;
-    this.percentage.style.background = `linear-gradient(to right, #531cb3 0%, #eee 0%)`
-  }
-}
+  return Timer;
+}();
 
 document.addEventListener('load', new Timer());

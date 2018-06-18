@@ -4,7 +4,7 @@
   "description": "Study timer PWA",
   "main": "index.js",
   "scripts": {
-    "build": "babel js -d bin"
+    "build": "babel src -d js"
   },
   "author": "Samuel Hornsey",
   "license": "MIT",

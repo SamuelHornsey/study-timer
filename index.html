@@ -54,7 +54,12 @@
   </section>
 
 
-  <script src="bin/timer.js"></script>
+  <script src="js/timer.js"></script>
+  <script>
+    if (navigator.serviceWorker) {
+        navigator.serviceWorker.register('/study-timer/sw.js', { scope: '/study-timer/'})
+    }
+</script>
 </body>
 
 </html>
