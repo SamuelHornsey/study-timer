@@ -1,9 +1,3 @@
-/*
-https://coolors.co/531cb3-944bbb-aa7bc3-cc92c2-dba8ac
-https://coolors.co/54428e-944bbb-afe3c0-90c290-688b58
-https://coolors.co/41d3bd-944bbb-fffff2-de6449-407899
-*/
-
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body {
@@ -34,54 +28,24 @@ nav li a {
     padding: 20px 24px;
     text-decoration: none;
 }
-@media screen and (min-width: 400px) {
-    section .container {
-        width: 95%;
-        margin: auto;
-    }
-}
 
-@media screen and (min-width: 800px) {
-    section .container {
-        width: 70%;
-        margin: auto;
-    }
-}
-
-@media screen and (min-width: 1020px) {
-    section .container {
-        width: 50%;
-        margin: auto;
-    }
-}
-
-@media screen and (min-width: 2000px) {
-    section .container {
-        width: 40%;
-        margin: auto;
-    }
-}
-
-section .timer {
+.timer {
+    width: 80%;
+    margin: auto;
     text-align: center;
 }
 
-section .timer h1 {
+.timer__time {
     font-size: 70px;
 }
 
-section .timer .timer-perc {
+.timer__percent {
     width: 50%;
     height: 3px;
     margin: auto;
 }
 
-section .settings {
-    padding: 40px;
-    text-align: center;
-}
-
-section .settings input[type=text] {
+.timer__period {
     padding: 12px 10px;
     width: 80%;
     margin: 8px 0;
@@ -91,14 +55,19 @@ section .settings input[type=text] {
     border: none;
     border-bottom: 2px solid #eee;
     transition: .4s ease-in-out;
+    max-width: 280px;
 }
 
-section .settings input[type=text]:focus {
+.timer__period:focus {
     border-bottom: 2px solid #944bbb;
     outline-width: 0;
 }
 
-section .settings .button {
+.timer__btns {
+    margin: 18px 0px;
+}
+
+.timer__btn {
     border-radius: 5px;
     background-color: white;
     color: black;
@@ -109,28 +78,29 @@ section .settings .button {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    width: 120px;
 }
 
-section .settings .button:hover {
+.timer__btn:hover {
     color: white;
 }
 
-section .settings .stop {
-    border: 2px solid #531cb3;
-}
-
-section .settings .start {
+.timer__btn--start {
     border: 2px solid #944bbb;
 }
 
-section .settings .stop:hover {
-    border: 2px solid #531cb3;
-    background-color: #531cb3;
+.timer__btn--start:hover {
+    border: 2px solid #944bbb;
+    background-color: #944bbb;
     outline-width: 0;
 }
 
-section .settings .start:hover {
-    border: 2px solid #944bbb;
-    background-color: #944bbb;
+.timer__btn--reset {
+    border: 2px solid #531cb3;
+}
+
+.timer__btn--reset:hover {
+    border: 2px solid #531cb3;
+    background-color: #531cb3;
     outline-width: 0;
 }

@@ -2,9 +2,9 @@ self.addEventListener("install", event => {
     event.waitUntil(
       caches.open("static-v1").then(cache => {
         cache.addAll([
-          "js/timer.js",
+          "js/main.js",
           "js/manifest.json",
-          "css/styles.css",
+          "css/main.css",
           "img/favicon.png",
           "img/icon-192.png",
           "img/icon-512.png",
