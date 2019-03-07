@@ -4,7 +4,8 @@
   "description": "Study timer PWA",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d js"
+    "webpack:dev": "webpack-dev-server",
+    "webpack:prod": "webpack --mode=production"
   },
   "author": "Samuel Hornsey",
   "license": "MIT",
@@ -23,6 +24,7 @@
     "ts-loader": "^5.3.3",
     "typescript": "^3.3.3333",
     "webpack": "^4.29.3",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
   }
 }

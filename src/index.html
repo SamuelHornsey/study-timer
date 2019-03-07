@@ -46,48 +46,16 @@
         <div class="timer__btns">
           <button class="timer__btn timer__btn--start js-start">Start</button>
           <button class="timer__btn timer__btn--reset js-reset">Reset</button>
-
         </div>
       </div>
     </app-timer>
 
-    <!-- <section>
-      <div class="container">
-        <div class="timer">
-          <h1 id="timer"></h1>
-          <div class="timer-perc"></div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div id="settings">
-          <div class="settings">
-            <h4>Enter Study Period (Min)</h4>
-            <input
-              type="text"
-              name="timer"
-              id="timerTime"
-              placeholder="Minutes"
-              value="30"
-            />
-            <br />
-            <button class="button start" type="button" name="button">
-              Start
-            </button>
-            <button class="button stop" type="button" name="button">
-              Stop
-            </button>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- <script>
-    if (navigator.serviceWorker) {
-        navigator.serviceWorker.register('/study-timer/sw.js', { scope: '/study-timer/'})
-    }
-  </script> -->
+    <script>
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register("/study-timer/sw.js", {
+          scope: "/study-timer/"
+        });
+      }
+    </script>
   </body>
 </html>
