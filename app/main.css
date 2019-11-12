@@ -1,0 +1,105 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+body {
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+
+nav {
+    background: linear-gradient(-90deg, #531cb3, #944bbb);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 24px;
+    text-decoration: none;
+}
+
+.timer {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.timer__time {
+    font-size: 70px;
+}
+
+.timer__percent {
+    width: 50%;
+    height: 3px;
+    margin: auto;
+}
+
+.timer__period {
+    padding: 12px 10px;
+    width: 80%;
+    margin: 8px 0;
+    font-size: 30px;
+    text-align: center;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #eee;
+    transition: .4s ease-in-out;
+    max-width: 280px;
+}
+
+.timer__period:focus {
+    border-bottom: 2px solid #944bbb;
+    outline-width: 0;
+}
+
+.timer__btns {
+    margin: 18px 0px;
+}
+
+.timer__btn {
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 120px;
+}
+
+.timer__btn:hover {
+    color: white;
+}
+
+.timer__btn--start {
+    border: 2px solid #944bbb;
+}
+
+.timer__btn--start:hover {
+    border: 2px solid #944bbb;
+    background-color: #944bbb;
+    outline-width: 0;
+}
+
+.timer__btn--reset {
+    border: 2px solid #531cb3;
+}
+
+.timer__btn--reset:hover {
+    border: 2px solid #531cb3;
+    background-color: #531cb3;
+    outline-width: 0;
+}

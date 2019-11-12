@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Study Timer</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Study Timer" />
+    <meta name="author" content="Samuel Hornsey" />
+    <meta name="theme-color" content="#531cb3" />
+
+    <link rel="manifest" href="manifest.json" />
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+  <link href="main.css" rel="stylesheet"></head>
+
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="#">Study Timer</a>
+        </li>
+      </ul>
+    </nav>
+
+    <app-timer class="timer">
+      <div class="timer__details">
+        <h1 class="timer__time js-current-time"></h1>
+        <div class="timer__percent js-percent"></div>
+      </div>
+
+      <div class="timer__controls">
+        <h4 class="timer__controls-title">Enter Study Period (Min)</h4>
+        <input
+          class="timer__period js-period"
+          type="text"
+          name="timer"
+          placeholder="Minutes"
+          value="30"
+        />
+
+        <div class="timer__btns">
+          <button class="timer__btn timer__btn--start js-start">Start</button>
+          <button class="timer__btn timer__btn--reset js-reset">Reset</button>
+        </div>
+      </div>
+    </app-timer>
+
+    <script>
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register("/study-timer/sw.js", {
+          scope: "/study-timer/"
+        });
+      }
+    </script>
+  <script type="text/javascript" src="bundle.fc78453395af709bd300.js"></script></body>
+</html>

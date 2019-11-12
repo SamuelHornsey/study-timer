@@ -5,13 +5,16 @@ const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const imageminMozjpeg = require("imagemin-mozjpeg");
 const path = require("path");
 
-module.exports = () => {
+module.exports = (env, argv) => {
+  const devMode = argv.mode === "development";
+
   return {
     entry: "./src/js/index.ts",
+
+    // where to dump the output of a production build
     output: {
-      filename: "[name].js",
-      path: path.resolve(__dirname, "./dist"),
-      publicPath: "/"
+      path: path.join(__dirname, "app"),
+      filename: devMode ? "bundle.js" : "bundle.[hash].js"
     },
 
     module: {
@@ -30,7 +33,7 @@ module.exports = () => {
 
         {
           test: /\.tsx?$/,
-          use: 'ts-loader',
+          use: "ts-loader",
           exclude: /node_modules/
         },
 
@@ -49,7 +52,7 @@ module.exports = () => {
     },
 
     resolve: {
-      extensions: [ '.tsx', '.ts', '.js' ]
+      extensions: [".tsx", ".ts", ".js"]
     },
 
     plugins: [
@@ -86,7 +89,7 @@ module.exports = () => {
     ],
 
     devServer: {
-      contentBase: path.join(__dirname, 'dist'),
+      contentBase: path.join(__dirname, "dist"),
       compress: true,
       port: 9000
     }
